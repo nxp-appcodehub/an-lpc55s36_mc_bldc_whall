@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<configuration name="LPC55S36" xsi:schemaLocation="http://mcuxpresso.nxp.com/XSD/mex_configuration_12 http://mcuxpresso.nxp.com/XSD/mex_configuration_12.xsd" uuid="09c7a3b0-2a96-4cf3-826a-2ee2956631f1" version="12" xmlns="http://mcuxpresso.nxp.com/XSD/mex_configuration_12" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <common>
+      <processor>LPC55S36</processor>
+      <package>LPC55S36JBD100</package>
+      <board>LPCXpresso55S36</board>
+      <mcu_data>ksdk2_0</mcu_data>
+      <cores selected="cm33_core0">
+         <core name="Cortex-M33" id="cm33_core0" description="M33 core"/>
+      </cores>
+      <description>Configuration imported from LPC55S36_bldc</description>
+   </common>
+   <preferences>
+      <validate_boot_init_only>true</validate_boot_init_only>
+      <generate_extended_information>false</generate_extended_information>
+      <generate_code_modified_registers_only>false</generate_code_modified_registers_only>
+      <update_include_paths>true</update_include_paths>
+      <generate_registers_defines>false</generate_registers_defines>
+   </preferences>
+   <tools>
+      <pins name="Pins" version="13.0" enabled="true" update_project_code="true">
+         <generated_project_files>
+            <file path="board/pin_mux.c" update_enabled="true"/>
+            <file path="board/pin_mux.h" update_enabled="true"/>
+         </generated_project_files>
+         <pins_profile>
+            <processor_version>13.0.1</processor_version>
+         </pins_profile>
+         <functions_list>
+            <function name="BOARD_InitPins">
+               <description>Configures pin routing and optionally pin electrical features.</description>
+               <options>
+                  <callFromInitBoot>true</callFromInitBoot>
+                  <coreID>cm33_core0</coreID>
+                  <enableClock>true</enableClock>
+               </options>
+               <dependencies>
+                  <dependency resourceType="Peripheral" resourceId="FLEXCOMM0" description="Peripheral FLEXCOMM0 is not initialized" problem_level="1" source="Pins:BOARD_InitPins">
+                     <feature name="initialized" evaluation="equal">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="Peripheral" resourceId="PWM0" description="Peripheral PWM0 is not initialized" problem_level="1" source="Pins:BOARD_InitPins">
+                     <feature name="initialized" evaluation="equal">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="Peripheral" resourceId="HSCMP0" description="Peripheral HSCMP0 is not initialized" problem_level="1" source="Pins:BOARD_InitPins">
+                     <feature name="initialized" evaluation="equal">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="Peripheral" resourceId="ADC0" description="Peripheral ADC0 is not initialized" problem_level="1" source="Pins:BOARD_InitPins">
+                     <feature name="initialized" evaluation="equal">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Pins initialization requires the COMMON Driver in the project." problem_level="2" source="Pins:BOARD_InitPins">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.lpc_gpio" description="Pins initialization requires the LPC_GPIO Driver in the project." problem_level="2" source="Pins:BOARD_InitPins">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.lpc_iocon" description="Pins initialization requires the LPC_IOCON Driver in the project." problem_level="2" source="Pins:BOARD_InitPins">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+               </dependencies>
+               <pins>
+                  <pin peripheral="FLEXCOMM0" signal="RXD_SDA_MOSI_DATA" pin_num="93" pin_signal="PIO0_29/FC0_RXD_SDA_MOSI_DATA/CTIMER2_MAT3/SCT0_OUT8/TRACEDATA2/FC6_RXD_SDA_MOSI_DATA/CMP0_OUT/SECURE_GPIO0_29/PWM0_A1/SPI_DIN/EXTTRIG_IN3">
+                     <pin_features>
+                        <pin_feature name="mode" value="inactive"/>
+                        <pin_feature name="slew_rate" value="standard"/>
+                        <pin_feature name="invert" value="disabled"/>
+                        <pin_feature name="open_drain" value="disabled"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="FLEXCOMM0" signal="TXD_SCL_MISO_WS" pin_num="95" pin_signal="PIO0_30/FC0_TXD_SCL_MISO_WS/CTIMER0_MAT0/SCT0_OUT9/TRACEDATA1/CAN0_TD/FC6_TXD_SCL_MISO_WS/SECURE_GPIO0_30/PWM1_A1/AOI1_OUT0">
+                     <pin_features>
+                        <pin_feature name="mode" value="inactive"/>
+                        <pin_feature name="slew_rate" value="standard"/>
+                        <pin_feature name="invert" value="disabled"/>
+                        <pin_feature name="open_drain" value="disabled"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PWM0" signal="A, 0" pin_num="11" pin_signal="PIO1_20/FC7_RTS_SCL_SSEL1/CT_INP14/FC4_TXD_SCL_MISO_WS/PWM0_A0/AOI0_OUT1/ADC1_8A"/>
+                  <pin peripheral="PWM0" signal="B, 0" pin_num="91" pin_signal="PIO1_17/FC6_RTS_SCL_SSEL1/SCT0_OUT4/PWM0_B0/AOI1_OUT3"/>
+                  <pin peripheral="PWM0" signal="A, 1" pin_num="50" pin_signal="PIO1_6/FC0_TXD_SCL_MISO_WS/CTIMER2_MAT1/SCT_GPI3/PWM0_A1/TRIGOUT_5/HSCMP0_OUT"/>
+                  <pin peripheral="PWM0" signal="B, 1" pin_num="40" pin_signal="PIO1_22/CTIMER2_MAT3/SCT_GPI5/FC4_SSEL3/CAN0_RD/QSPI_DIN3/PWM0_B1/TRIGOUT_2/HSCMP1_IN1/DAC0_OUT"/>
+                  <pin peripheral="PWM0" signal="A, 2" pin_num="36" pin_signal="PIO1_8/FC0_CTS_SDA_SSEL0/SCT0_OUT1/FC4_SSEL2/FC1_SCK/PWM0_A2/AOI1_OUT2/TRIGOUT_6"/>
+                  <pin peripheral="PWM0" signal="B, 2" pin_num="75" pin_signal="PIO1_4/FC0_SCK/CTIMER2_MAT1/SCT0_OUT0/FREQME_GPIO_CLK_A/FC4_TXD_SCL_MISO_WS/SPI_DIN/PWM0_B2/TRIGOUT_7/EXTTRIG_IN8"/>
+                  <pin peripheral="GPIO" signal="PIO0, 13" pin_num="70" pin_signal="PIO0_13/FC1_CTS_SDA_SSEL0/UTICK_CAP0/CT_INP0/SCT_GPI0/FC1_RXD_SDA_MOSI_DATA/SECURE_GPIO0_13/EXTTRIG_IN3">
+                     <pin_features>
+                        <pin_feature name="direction" value="INPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="GPIO" signal="PIO0, 14" pin_num="71" pin_signal="PIO0_14/FC1_RTS_SCL_SSEL1/UTICK_CAP1/CT_INP1/SCT_GPI1/FC1_TXD_SCL_MISO_WS/SECURE_GPIO0_14/EXTTRIG_IN2">
+                     <pin_features>
+                        <pin_feature name="direction" value="INPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="GPIO" signal="PIO0, 22" pin_num="78" pin_signal="PIO0_22/FC6_TXD_SCL_MISO_WS/UTICK_CAP1/CT_INP15/SCT0_OUT3/FLEXSPI0_SCLK_N/FLEXSPI0_SS1_N/USB0_VBUS/FC7_RTS_SCL_SSEL1/SECURE_GPIO0_22/PWM1_X0/EXTTRIG_IN5">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="GPIO" signal="PIO1, 28" pin_num="72" pin_signal="PIO1_28/FC7_SCK/CT_INP2/TRIGOUT_4/PWM1_X3/SPI_CS1_DIS/HSCMP1_OUT">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="GPIO" signal="PIO0, 17" pin_num="41" pin_signal="PIO0_17/FC4_SSEL2/SCT_GPI7/SCT0_OUT0/FC5_RXD_SDA_MOSI_DATA/QSPI_SCLK/SECURE_GPIO0_17/TRIGOUT_7/HSCMP1_OUT/HSCMP2_IN0">
+                     <pin_features>
+                        <pin_feature name="identifier" value="SW3"/>
+                        <pin_feature name="direction" value="INPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="GPIO" signal="PIO1, 11" pin_num="94" pin_signal="PIO1_11/FC1_TXD_SCL_MISO_WS/CT_INP5/USB0_VBUS/HS_SPI_SSEL0/FC6_SCK/PWM0_A0/SPI_SCLK/EXTTRIG_IN8">
+                     <pin_features>
+                        <pin_feature name="direction" value="INPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="GPIO" signal="PIO1, 21" pin_num="37" pin_signal="PIO1_21/FC7_CTS_SDA_SSEL0/CTIMER3_MAT2/FC4_RXD_SDA_MOSI_DATA/PWM1_A0/TRIGOUT_1">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="HSCMP0" signal="IN, 3" pin_num="35" pin_signal="PIO1_5/FC0_RXD_SDA_MOSI_DATA/CTIMER2_MAT0/SCT_GPI0/PWM1_A3/TRIGOUT_0/HSCMP0_IN3"/>
+                  <pin peripheral="ADC0" signal="CH, 4B" pin_num="30" pin_signal="PIO1_19/SCT0_OUT7/CTIMER3_MAT1/SCT_GPI7/FC4_SCK/QSPI_DIN0/AOI1_OUT2/DAC1_OUT/ADC0_4B/HSCMP1_IN5"/>
+               </pins>
+            </function>
+         </functions_list>
+      </pins>
+      <clocks name="Clocks" version="11.0" enabled="true" update_project_code="true">
+         <generated_project_files>
+            <file path="board/clock_config.c" update_enabled="true"/>
+            <file path="board/clock_config.h" update_enabled="true"/>
+         </generated_project_files>
+         <clocks_profile>
+            <processor_version>13.0.1</processor_version>
+         </clocks_profile>
+         <clock_configurations>
+            <clock_configuration name="BOARD_BootClockFRO12M" id_prefix="" prefix_user_defined="false">
+               <description></description>
+               <options/>
+               <dependencies>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Clocks initialization requires the COMMON Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFRO12M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.power" description="Clocks initialization requires the POWER Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFRO12M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.clock" description="Clocks initialization requires the CLOCK Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFRO12M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+               </dependencies>
+               <clock_sources/>
+               <clock_outputs>
+                  <clock_output id="FRO_12MHz_clock.outFreq" value="12 MHz" locked="false" accuracy=""/>
+                  <clock_output id="System_clock.outFreq" value="12 MHz" locked="false" accuracy=""/>
+               </clock_outputs>
+               <clock_settings/>
+               <called_from_default_init>false</called_from_default_init>
+            </clock_configuration>
+            <clock_configuration name="BOARD_BootClockFROHF96M" id_prefix="" prefix_user_defined="false">
+               <description></description>
+               <options/>
+               <dependencies>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Clocks initialization requires the COMMON Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFROHF96M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.power" description="Clocks initialization requires the POWER Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFROHF96M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.clock" description="Clocks initialization requires the CLOCK Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFROHF96M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+               </dependencies>
+               <clock_sources>
+                  <clock_source id="ANACTRL.fro_hf.outFreq" value="96 MHz" locked="false" enabled="false"/>
+               </clock_sources>
+               <clock_outputs>
+                  <clock_output id="FRO_12MHz_clock.outFreq" value="12 MHz" locked="false" accuracy=""/>
+                  <clock_output id="System_clock.outFreq" value="96 MHz" locked="false" accuracy=""/>
+               </clock_outputs>
+               <clock_settings>
+                  <setting id="ANALOG_CONTROL_FRO192M_CTRL_ENDI_FRO_96M_CFG" value="Enable" locked="false"/>
+                  <setting id="SYSCON.MAINCLKSELA.sel" value="ANACTRL.fro_hf_clk" locked="false"/>
+               </clock_settings>
+               <called_from_default_init>false</called_from_default_init>
+            </clock_configuration>
+            <clock_configuration name="BOARD_BootClockPLL100M" id_prefix="" prefix_user_defined="false">
+               <description></description>
+               <options/>
+               <dependencies>
+                  <dependency resourceType="PinSignal" resourceId="SYSCON.XTALIN" description="&apos;XTALIN&apos; (Pins tool id: SYSCON.XTALIN, Clocks tool id: SYSCON.XTALIN) needs to be routed" problem_level="1" source="Clocks:BOARD_BootClockPLL100M">
+                     <feature name="routed" evaluation="">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="SYSCON.XTALIN" description="&apos;XTALIN&apos; (Pins tool id: SYSCON.XTALIN, Clocks tool id: SYSCON.XTALIN) needs to have &apos;INPUT&apos; direction" problem_level="1" source="Clocks:BOARD_BootClockPLL100M">
+                     <feature name="direction" evaluation="">
+                        <data>INPUT</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="SYSCON.XTALOUT" description="&apos;XTALOUT&apos; (Pins tool id: SYSCON.XTALOUT, Clocks tool id: SYSCON.XTALOUT) needs to be routed" problem_level="1" source="Clocks:BOARD_BootClockPLL100M">
+                     <feature name="routed" evaluation="">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="SYSCON.XTALOUT" description="&apos;XTALOUT&apos; (Pins tool id: SYSCON.XTALOUT, Clocks tool id: SYSCON.XTALOUT) needs to have &apos;OUTPUT&apos; direction" problem_level="1" source="Clocks:BOARD_BootClockPLL100M">
+                     <feature name="direction" evaluation="">
+                        <data>OUTPUT</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Clocks initialization requires the COMMON Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL100M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.power" description="Clocks initialization requires the POWER Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL100M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.clock" description="Clocks initialization requires the CLOCK Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL100M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+               </dependencies>
+               <clock_sources>
+                  <clock_source id="ANACTRL.fro_hf.outFreq" value="96 MHz" locked="false" enabled="false"/>
+                  <clock_source id="SYSCON.XTAL.outFreq" value="16 MHz" locked="false" enabled="true"/>
+               </clock_sources>
+               <clock_outputs>
+                  <clock_output id="FRO_12MHz_clock.outFreq" value="12 MHz" locked="false" accuracy=""/>
+                  <clock_output id="System_clock.outFreq" value="100 MHz" locked="false" accuracy=""/>
+               </clock_outputs>
+               <clock_settings>
+                  <setting id="PLL0_Mode" value="Normal" locked="false"/>
+                  <setting id="ANALOG_CONTROL_FRO192M_CTRL_ENDI_FRO_96M_CFG" value="Enable" locked="false"/>
+                  <setting id="ENABLE_CLKIN_ENA" value="Enabled" locked="false"/>
+                  <setting id="ENABLE_SYSTEM_CLK_OUT" value="Enabled" locked="false"/>
+                  <setting id="SYSCON.MAINCLKSELB.sel" value="SYSCON.PLL0_BYPASS" locked="false"/>
+                  <setting id="SYSCON.PLL0CLKSEL.sel" value="SYSCON.CLK_IN_EN" locked="false"/>
+                  <setting id="SYSCON.PLL0M_MULT.scale" value="100" locked="true"/>
+                  <setting id="SYSCON.PLL0N_DIV.scale" value="4" locked="true"/>
+                  <setting id="SYSCON.PLL0_PDEC.scale" value="4" locked="true"/>
+               </clock_settings>
+               <called_from_default_init>false</called_from_default_init>
+            </clock_configuration>
+            <clock_configuration name="BOARD_BootClockPLL150M" id_prefix="" prefix_user_defined="false">
+               <description></description>
+               <options/>
+               <dependencies>
+                  <dependency resourceType="PinSignal" resourceId="SYSCON.XTALIN" description="&apos;XTALIN&apos; (Pins tool id: SYSCON.XTALIN, Clocks tool id: SYSCON.XTALIN) needs to be routed" problem_level="1" source="Clocks:BOARD_BootClockPLL150M">
+                     <feature name="routed" evaluation="">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="SYSCON.XTALIN" description="&apos;XTALIN&apos; (Pins tool id: SYSCON.XTALIN, Clocks tool id: SYSCON.XTALIN) needs to have &apos;INPUT&apos; direction" problem_level="1" source="Clocks:BOARD_BootClockPLL150M">
+                     <feature name="direction" evaluation="">
+                        <data>INPUT</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="SYSCON.XTALOUT" description="&apos;XTALOUT&apos; (Pins tool id: SYSCON.XTALOUT, Clocks tool id: SYSCON.XTALOUT) needs to be routed" problem_level="1" source="Clocks:BOARD_BootClockPLL150M">
+                     <feature name="routed" evaluation="">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="SYSCON.XTALOUT" description="&apos;XTALOUT&apos; (Pins tool id: SYSCON.XTALOUT, Clocks tool id: SYSCON.XTALOUT) needs to have &apos;OUTPUT&apos; direction" problem_level="1" source="Clocks:BOARD_BootClockPLL150M">
+                     <feature name="direction" evaluation="">
+                        <data>OUTPUT</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Clocks initialization requires the COMMON Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL150M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.power" description="Clocks initialization requires the POWER Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL150M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.clock" description="Clocks initialization requires the CLOCK Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL150M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+               </dependencies>
+               <clock_sources>
+                  <clock_source id="ANACTRL.fro_hf.outFreq" value="96 MHz" locked="false" enabled="false"/>
+                  <clock_source id="SYSCON.XTAL.outFreq" value="16 MHz" locked="false" enabled="true"/>
+               </clock_sources>
+               <clock_outputs>
+                  <clock_output id="CTIMER0_clock.outFreq" value="96 MHz" locked="true" accuracy="0.001"/>
+                  <clock_output id="CTIMER1_clock.outFreq" value="750 kHz" locked="false" accuracy=""/>
+                  <clock_output id="FRO_12MHz_clock.outFreq" value="12 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FXCOM0_clock.outFreq" value="48 MHz" locked="true" accuracy="0.001"/>
+                  <clock_output id="System_clock.outFreq" value="150 MHz" locked="false" accuracy=""/>
+               </clock_outputs>
+               <clock_settings>
+                  <setting id="PLL0_Mode" value="Normal" locked="false"/>
+                  <setting id="ANALOG_CONTROL_FRO192M_CTRL_ENDI_FRO_96M_CFG" value="Enable" locked="false"/>
+                  <setting id="CTIMER0CLKDIV_HALT" value="Enable" locked="false"/>
+                  <setting id="CTIMER1CLKDIV_HALT" value="Enable" locked="false"/>
+                  <setting id="ENABLE_CLKIN_ENA" value="Enabled" locked="false"/>
+                  <setting id="ENABLE_SYSTEM_CLK_OUT" value="Enabled" locked="false"/>
+                  <setting id="FLEXCOMM0CLKDIV_HALT" value="Enable" locked="false"/>
+                  <setting id="FROHFDIV_HALT" value="Enable" locked="false"/>
+                  <setting id="SYSCON.CTIMER0CLKDIV.scale" value="1" locked="true"/>
+                  <setting id="SYSCON.CTIMER1CLKDIV.scale" value="128" locked="true"/>
+                  <setting id="SYSCON.CTIMER2CLKDIV.scale" value="128" locked="true"/>
+                  <setting id="SYSCON.CTIMERCLKSEL0.sel" value="ANACTRL.fro_hf_clk" locked="false"/>
+                  <setting id="SYSCON.CTIMERCLKSEL1.sel" value="ANACTRL.fro_hf_clk" locked="false"/>
+                  <setting id="SYSCON.FCCLKDIV0.scale" value="1" locked="true"/>
+                  <setting id="SYSCON.FCCLKSEL0.sel" value="SYSCON.FROHFDIV" locked="false"/>
+                  <setting id="SYSCON.FROHFDIV.scale" value="2" locked="true"/>
+                  <setting id="SYSCON.MAINCLKSELB.sel" value="SYSCON.PLL0_BYPASS" locked="false"/>
+                  <setting id="SYSCON.PLL0CLKSEL.sel" value="SYSCON.CLK_IN_EN" locked="false"/>
+                  <setting id="SYSCON.PLL0M_MULT.scale" value="150" locked="true"/>
+                  <setting id="SYSCON.PLL0N_DIV.scale" value="8" locked="true"/>
+                  <setting id="SYSCON.PLL0_PDEC.scale" value="2" locked="true"/>
+               </clock_settings>
+               <called_from_default_init>true</called_from_default_init>
+            </clock_configuration>
+            <clock_configuration name="BOARD_BootClockPLL1_150M" id_prefix="" prefix_user_defined="false">
+               <description></description>
+               <options/>
+               <dependencies>
+                  <dependency resourceType="PinSignal" resourceId="SYSCON.XTALIN" description="&apos;XTALIN&apos; (Pins tool id: SYSCON.XTALIN, Clocks tool id: SYSCON.XTALIN) needs to be routed" problem_level="1" source="Clocks:BOARD_BootClockPLL1_150M">
+                     <feature name="routed" evaluation="">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="SYSCON.XTALIN" description="&apos;XTALIN&apos; (Pins tool id: SYSCON.XTALIN, Clocks tool id: SYSCON.XTALIN) needs to have &apos;INPUT&apos; direction" problem_level="1" source="Clocks:BOARD_BootClockPLL1_150M">
+                     <feature name="direction" evaluation="">
+                        <data>INPUT</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="SYSCON.XTALOUT" description="&apos;XTALOUT&apos; (Pins tool id: SYSCON.XTALOUT, Clocks tool id: SYSCON.XTALOUT) needs to be routed" problem_level="1" source="Clocks:BOARD_BootClockPLL1_150M">
+                     <feature name="routed" evaluation="">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="SYSCON.XTALOUT" description="&apos;XTALOUT&apos; (Pins tool id: SYSCON.XTALOUT, Clocks tool id: SYSCON.XTALOUT) needs to have &apos;OUTPUT&apos; direction" problem_level="1" source="Clocks:BOARD_BootClockPLL1_150M">
+                     <feature name="direction" evaluation="">
+                        <data>OUTPUT</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Clocks initialization requires the COMMON Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL1_150M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.power" description="Clocks initialization requires the POWER Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL1_150M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.clock" description="Clocks initialization requires the CLOCK Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL1_150M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+               </dependencies>
+               <clock_sources>
+                  <clock_source id="SYSCON.XTAL.outFreq" value="16 MHz" locked="false" enabled="true"/>
+               </clock_sources>
+               <clock_outputs>
+                  <clock_output id="FRO_12MHz_clock.outFreq" value="12 MHz" locked="false" accuracy=""/>
+                  <clock_output id="System_clock.outFreq" value="150 MHz" locked="false" accuracy=""/>
+               </clock_outputs>
+               <clock_settings>
+                  <setting id="PLL1_Mode" value="Normal" locked="false"/>
+                  <setting id="ENABLE_CLKIN_ENA" value="Enabled" locked="false"/>
+                  <setting id="ENABLE_SYSTEM_CLK_OUT" value="Enabled" locked="false"/>
+                  <setting id="SYSCON.MAINCLKSELB.sel" value="SYSCON.PLL1_BYPASS" locked="false"/>
+                  <setting id="SYSCON.PLL1CLKSEL.sel" value="SYSCON.CLK_IN_EN" locked="false"/>
+                  <setting id="SYSCON.PLL1M_MULT.scale" value="150" locked="true"/>
+                  <setting id="SYSCON.PLL1N_DIV.scale" value="8" locked="true"/>
+                  <setting id="SYSCON.PLL1_PDEC.scale" value="2" locked="true"/>
+               </clock_settings>
+               <called_from_default_init>false</called_from_default_init>
+            </clock_configuration>
+         </clock_configurations>
+      </clocks>
+      <dcdx name="DCDx" version="3.0" enabled="false" update_project_code="true">
+         <generated_project_files/>
+         <dcdx_profile>
+            <processor_version>N/A</processor_version>
+         </dcdx_profile>
+         <dcdx_configurations/>
+      </dcdx>
+      <periphs name="Peripherals" version="12.0" enabled="true" update_project_code="true">
+         <dependencies>
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.pwm" description="PWM Driver not found in the toolchain/IDE project. Project will not compile!" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.pwm" description="Unsupported version of the PWM Driver in the toolchain/IDE project. Required: ${required_value}, actual: ${actual_value}. Project might not compile correctly." problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">2.2.1</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.pint" description="PINT Driver not found in the toolchain/IDE project. Project will not compile!" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.pint" description="Unsupported version of the PINT Driver in the toolchain/IDE project. Required: ${required_value}, actual: ${actual_value}. Project might not compile correctly." problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">2.1.3</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.ctimer" description="CTimer Driver not found in the toolchain/IDE project. Project will not compile!" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.ctimer" description="Unsupported version of the CTimer Driver in the toolchain/IDE project. Required: ${required_value}, actual: ${actual_value}. Project might not compile correctly." problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="greaterOrEqual">
+                  <data type="Version">2.2.0</data>
+               </feature>
+            </dependency>
+         </dependencies>
+         <generated_project_files>
+            <file path="board/peripherals.c" update_enabled="true"/>
+            <file path="board/peripherals.h" update_enabled="true"/>
+         </generated_project_files>
+         <peripherals_profile>
+            <processor_version>13.0.1</processor_version>
+         </peripherals_profile>
+         <functional_groups>
+            <functional_group name="BOARD_InitPeripherals" uuid="9e84fc5b-7014-4377-b3ff-bd9d7c624bf8" called_from_default_init="true" id_prefix="" core="cm33_core0">
+               <description></description>
+               <options/>
+               <dependencies>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="PWM0.pwm_fault.0" description="PWM0.FAULT, 0 pin needs to be routed" problem_level="1" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="routed" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="PWM0.pwm_fault.1" description="PWM0.FAULT, 1 pin needs to be routed" problem_level="1" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="routed" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="PWM0.pwm_fault.2" description="PWM0.FAULT, 2 pin needs to be routed" problem_level="1" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="routed" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="PWM0.pwm_fault.3" description="PWM0.FAULT, 3 pin needs to be routed" problem_level="1" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="routed" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="PINT.pint.0" description="Signal PINT, 0 is not routed." problem_level="1" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="routed" evaluation="">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="ClockOutput" resourceId="CTIMER0_clock" description="CTIMER0_clock is inactive." problem_level="2" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="frequency" evaluation="greaterThan">
+                        <data type="Frequency" unit="Hz">0</data>
+                     </feature>
+                  </dependency>
+               </dependencies>
+               <instances>
+                  <instance name="NVIC" uuid="a73075d4-68fa-4d16-813e-14df720b0409" type="nvic" type_id="nvic_57b5eef3774cc60acaede6f5b8bddc67" mode="general" peripheral="NVIC" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
+                     <config_set name="nvic">
+                        <array name="interrupt_table">
+                           <struct name="0"/>
+                        </array>
+                        <array name="interrupts"/>
+                     </config_set>
+                  </instance>
+                  <instance name="PWM0" uuid="ff6e1631-dd79-47ed-be42-501ad561d847" type="pwm" type_id="pwm_403b1696012c269dda52095c45493820" mode="general" peripheral="PWM0" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
+                     <config_set name="fsl_pwm">
+                        <setting name="clockSource" value="SystemClock"/>
+                        <setting name="clockSourceFreq" value="BOARD_BootClockPLL150M"/>
+                        <array name="submodules">
+                           <struct name="0">
+                              <setting name="sm" value="kPWM_Module_0"/>
+                              <setting name="sm_id" value="SM0"/>
+                              <struct name="config">
+                                 <setting name="clockSource" value="kPWM_BusClock"/>
+                                 <setting name="prescale" value="kPWM_Prescale_Divide_1"/>
+                                 <setting name="pwmFreq" value="20 kHz"/>
+                                 <setting name="pairOperation" value="kPWM_Independent"/>
+                                 <setting name="operationMode" value="kPWM_SignedCenterAligned"/>
+                                 <setting name="initializationControl" value="kPWM_Initialize_LocalSync"/>
+                                 <setting name="reloadLogic" value="kPWM_ReloadImmediate"/>
+                                 <setting name="reloadSelect" value="kPWM_LocalReload"/>
+                                 <setting name="reloadFrequency" value="kPWM_LoadEveryOportunity"/>
+                                 <setting name="forceTrigger" value="kPWM_Force_Local"/>
+                                 <setting name="enableDebugMode" value="false"/>
+                                 <setting name="enableWait" value="false"/>
+                                 <set name="outputTrigger_sel">
+                                    <selected/>
+                                 </set>
+                                 <setting name="loadOK" value="false"/>
+                                 <setting name="startCounter" value="false"/>
+                                 <set name="interrupt_sel">
+                                    <selected/>
+                                 </set>
+                                 <setting name="dma_used" value="false"/>
+                                 <struct name="dma">
+                                    <setting name="pwmDMA_activate" value="false"/>
+                                    <set name="captureDMA_enable">
+                                       <selected/>
+                                    </set>
+                                    <setting name="captureDMA_source" value="kPWM_DMARequestDisable"/>
+                                    <setting name="captureDMA_watermark_control" value="kPWM_FIFOWatermarksOR"/>
+                                 </struct>
+                              </struct>
+                              <array name="channels">
+                                 <struct name="0">
+                                    <setting name="channel_id" value="A"/>
+                                    <setting name="functionSel" value="notUsed"/>
+                                 </struct>
+                                 <struct name="1">
+                                    <setting name="channel_id" value="B"/>
+                                    <setting name="functionSel" value="notUsed"/>
+                                 </struct>
+                                 <struct name="2">
+                                    <setting name="channel_id" value="X"/>
+                                    <setting name="functionSel" value="notUsed"/>
+                                 </struct>
+                              </array>
+                              <setting name="compare_interruptEn" value="false"/>
+                              <struct name="compare_interrupt">
+                                 <setting name="IRQn" value="FLEXPWM0_COMPARE0_IRQn"/>
+                                 <setting name="enable_interrrupt" value="enabled"/>
+                                 <setting name="enable_priority" value="false"/>
+                                 <setting name="priority" value="0"/>
+                                 <setting name="enable_custom_name" value="false"/>
+                              </struct>
+                              <setting name="reload_interruptEn" value="false"/>
+                              <struct name="reload_interrupt">
+                                 <setting name="IRQn" value="FLEXPWM0_RELOAD0_IRQn"/>
+                                 <setting name="enable_interrrupt" value="enabled"/>
+                                 <setting name="enable_priority" value="false"/>
+                                 <setting name="priority" value="0"/>
+                                 <setting name="enable_custom_name" value="false"/>
+                              </struct>
+                           </struct>
+                        </array>
+                        <array name="faultChannels">
+                           <struct name="0">
+                              <struct name="commonFaultSetting">
+                                 <setting name="clockSource" value="kPWM_BusClock"/>
+                                 <setting name="faultFilterPeriod" value="1"/>
+                                 <setting name="faultFilterCount" value="3"/>
+                                 <setting name="faultGlitchStretch" value="false"/>
+                              </struct>
+                              <array name="faults">
+                                 <struct name="0">
+                                    <setting name="fault_id" value="Fault0"/>
+                                    <setting name="faultClearingMode" value="kPWM_Automatic"/>
+                                    <setting name="faultLevelR" value="low"/>
+                                    <setting name="enableCombinationalPathR" value="nonFiltered"/>
+                                    <setting name="recoverMode" value="kPWM_NoRecovery"/>
+                                    <setting name="fault_int_source" value="false"/>
+                                 </struct>
+                                 <struct name="1">
+                                    <setting name="fault_id" value="Fault1"/>
+                                    <setting name="faultClearingMode" value="kPWM_Automatic"/>
+                                    <setting name="faultLevelR" value="low"/>
+                                    <setting name="enableCombinationalPathR" value="nonFiltered"/>
+                                    <setting name="recoverMode" value="kPWM_NoRecovery"/>
+                                    <setting name="fault_int_source" value="false"/>
+                                 </struct>
+                                 <struct name="2">
+                                    <setting name="fault_id" value="Fault2"/>
+                                    <setting name="faultClearingMode" value="kPWM_Automatic"/>
+                                    <setting name="faultLevelR" value="low"/>
+                                    <setting name="enableCombinationalPathR" value="nonFiltered"/>
+                                    <setting name="recoverMode" value="kPWM_NoRecovery"/>
+                                    <setting name="fault_int_source" value="false"/>
+                                 </struct>
+                                 <struct name="3">
+                                    <setting name="fault_id" value="Fault3"/>
+                                    <setting name="faultClearingMode" value="kPWM_Automatic"/>
+                                    <setting name="faultLevelR" value="low"/>
+                                    <setting name="enableCombinationalPathR" value="nonFiltered"/>
+                                    <setting name="recoverMode" value="kPWM_NoRecovery"/>
+                                    <setting name="fault_int_source" value="false"/>
+                                 </struct>
+                              </array>
+                           </struct>
+                        </array>
+                        <setting name="fault_interruptEn" value="false"/>
+                        <struct name="fault_interrupt">
+                           <setting name="IRQn" value="FLEXPWM0_FAULT_IRQn"/>
+                           <setting name="enable_interrrupt" value="enabled"/>
+                           <setting name="enable_priority" value="false"/>
+                           <setting name="priority" value="0"/>
+                           <setting name="enable_custom_name" value="false"/>
+                        </struct>
+                        <setting name="error_interruptEn" value="false"/>
+                        <struct name="error_interrupt">
+                           <setting name="IRQn" value="noInt"/>
+                           <setting name="enable_interrrupt" value="enabled"/>
+                           <setting name="enable_priority" value="false"/>
+                           <setting name="priority" value="0"/>
+                           <setting name="enable_custom_name" value="false"/>
+                        </struct>
+                     </config_set>
+                  </instance>
+                  <instance name="PINT" uuid="a87b0e2f-6cd6-4f49-87dd-3f8a5d4cc80f" type="pint" type_id="pint_cf4a806bb2a6c1ffced58ae2ed7b43af" mode="interrupt_mode" peripheral="PINT" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
+                     <config_set name="general">
+                        <array name="interrupt_array">
+                           <struct name="0">
+                              <setting name="interrupt_id" value="INT_0"/>
+                              <setting name="interrupt_selection" value="PINT.0"/>
+                              <setting name="interrupt_type" value="kPINT_PinIntEnableFallEdge"/>
+                              <setting name="callback_function" value=""/>
+                              <setting name="enable_callback" value="true"/>
+                              <struct name="interrupt">
+                                 <setting name="IRQn" value="PIN_INT0_IRQn"/>
+                                 <setting name="enable_priority" value="false"/>
+                                 <setting name="priority" value="0"/>
+                              </struct>
+                           </struct>
+                        </array>
+                     </config_set>
+                  </instance>
+                  <instance name="CTIMER0" uuid="f0caa374-40b2-4c75-a0c9-5bc8c3d40774" type="ctimer" type_id="ctimer_72ecb1f82fe6700da71dde4e8bc60e39" mode="Capture_Match" peripheral="CTIMER0" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
+                     <config_set name="fsl_ctimer">
+                        <struct name="ctimerConfig">
+                           <setting name="mode" value="kCTIMER_TimerMode"/>
+                           <setting name="clockSource" value="FunctionClock"/>
+                           <setting name="clockSourceFreq" value="BOARD_BootClockPLL150M"/>
+                           <setting name="timerPrescaler" value="1"/>
+                        </struct>
+                        <setting name="EnableTimerInInit" value="false"/>
+                        <array name="matchChannels"/>
+                        <array name="captureChannels"/>
+                        <struct name="interruptCallbackConfig">
+                           <struct name="interrupt">
+                              <setting name="IRQn" value="CTIMER0_IRQn"/>
+                              <setting name="enable_priority" value="false"/>
+                              <setting name="priority" value="0"/>
+                           </struct>
+                           <setting name="callback" value="kCTIMER_NoCallback"/>
+                        </struct>
+                     </config_set>
+                  </instance>
+               </instances>
+            </functional_group>
+         </functional_groups>
+         <components>
+            <component name="system" uuid="59e6989c-4969-4be2-883e-58c43ca5d3dc" type_id="system_54b53072540eeeb8f8e9343e71f28176">
+               <config_set_global name="global_system_definitions">
+                  <setting name="user_definitions" value=""/>
+                  <setting name="user_includes" value=""/>
+               </config_set_global>
+            </component>
+            <component name="uart_cmsis_common" uuid="1ce23345-f758-461f-bc9e-95eeb9de1f6b" type_id="uart_cmsis_common_9cb8e302497aa696fdbb5a4fd622c2a8">
+               <config_set_global name="global_USART_CMSIS_common" quick_selection="default"/>
+            </component>
+            <component name="msg" uuid="51c6be9c-ccf5-4e22-99b3-9634f87db291" type_id="msg_6e2baaf3b97dbeef01c0043275f9a0e7">
+               <config_set_global name="global_messages"/>
+            </component>
+            <component name="gpio_adapter_common" uuid="15ca4325-be3f-4406-a7b7-a51f53a5eaf2" type_id="gpio_adapter_common_57579b9ac814fe26bf95df0a384c36b6">
+               <config_set_global name="global_gpio_adapter_common" quick_selection="default"/>
+            </component>
+            <component name="generic_uart" uuid="de1e53ae-df20-4d4e-9b98-f84fa5eb2a4c" type_id="generic_uart_8cae00565451cf2346eb1b8c624e73a6">
+               <config_set_global name="global_uart"/>
+            </component>
+            <component name="generic_enet" uuid="8de10b3d-a410-4c76-b9d1-fadff445871e" type_id="generic_enet_74db5c914f0ddbe47d86af40cb77a619">
+               <config_set_global name="global_enet"/>
+            </component>
+            <component name="generic_can" uuid="4a39de39-e100-4985-9d9f-ae640d7a3b86" type_id="generic_can_1bfdd78b1af214566c1f23cf6a582d80">
+               <config_set_global name="global_can"/>
+            </component>
+         </components>
+      </periphs>
+      <tee name="TEE" version="4.0" enabled="false" update_project_code="true">
+         <generated_project_files/>
+         <tee_profile>
+            <processor_version>N/A</processor_version>
+         </tee_profile>
+      </tee>
+   </tools>
+</configuration>

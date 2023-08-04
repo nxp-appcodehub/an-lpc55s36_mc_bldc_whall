@@ -1,0 +1,26 @@
+<data:item xmlns:data="data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="data ../../xsd/alp.xsd" id="an-lpc55s36_mc_bldc_whall" type="app_note" format="projectfile" name="LPC55S36_mc_bldc_wHall">
+    <overview>
+        <![CDATA[This application note describes the implementation of the 3-phase Brushless DC motor (BLDC) control with Hall sensor based on the NXP LPC55S36 processor. Please refer to AN13571 for complete instructions on how to use this software. <a href="https://www.nxp.com/docs/en/application-note/AN13571.pdf"></a><a href="https://www.nxp.com/docs/en/application-note/AN13571.pdf">https://www.nxp.com/docs/en/application-note/AN13571.pdf</a>.<br />The LPC55S3x/LPC553x is an Arm Cortex-M33 based microcontroller for embedded applications. These devices include up to 256 KB on-chip flash, up to 128 KB of on-chip SRAM, one SCTimer/PWM, eight flexible serial communication peripherals (which can be configured as a USART, SPI, high speed SPI, I2C, or I2S interface), two 16-bit 2.0 Msamples/sec ADCs capable of four simultaneous conversions, four comparators, two temperature sensors, three 12-bit 1 Msample/sec DACs, three OpAmps, two FlexPWM timers. The Arm Cortex-M33 provides a security foundation, offering isolation to protect valuable IP and data with TrustZone® technology. It simplifies the design and software development of digital signal control systems with the integrated digital signal processing (DSP) instructions.<br />This application note mainly introduces the principle of BLDC six-step control with hall sensor, hardware and software implementation, including a detailed peripheral setup and driver description.<br />]]>
+    </overview>
+    <toolchains>
+        <toolchain name="mcux"></toolchain>
+    </toolchains>
+    <families>
+        <family name="lpc"></family>
+    </families>
+    <nxp_compatible_hw>
+        <hw id="LPCXpresso55S36"></hw>
+    </nxp_compatible_hw>
+    <nxp_ebh_hw>
+        <ebh id="nxp_frdm_mc_lvpmsm"></ebh>
+    </nxp_ebh_hw>
+    <peripherals>
+        <peripheral name="adc"></peripheral>
+        <peripheral name="gpio"></peripheral>
+        <peripheral name="pwm"></peripheral>
+        <peripheral name="timer"></peripheral>
+    </peripherals>
+    <categories>
+        <category name="motor_control"></category>
+    </categories>
+</data:item>
