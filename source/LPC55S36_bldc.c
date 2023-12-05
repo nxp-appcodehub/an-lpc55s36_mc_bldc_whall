@@ -53,6 +53,7 @@
 
 #define LED_RED_SET 				GPIO->CLR[1]|=led_red
 #define LED_RED_CLEAR 				GPIO->SET[1]|=led_red
+#define LED_RED_NOT 				GPIO->NOT[1]|=led_red
 #define LED_GREEN_SET 				GPIO->SET[0]|=led_green
 #define LED_GREEN_CLEAR 			GPIO->CLR[0]|=led_green
 #define HALL_A_DETECTED 			GPIO->W[0][13]==0xffffffff
@@ -98,6 +99,7 @@ uint32_t 		g_ui32NumberOfCycles    = 0U;
 uint32_t 		g_ui32MaxNumberOfCycles = 0U;
 uint32_t 		Ctimer1_old			 	= 0U;
 uint32_t 		cmtflag				 	= 0U;
+uint32_t 		faultcnt				= 0U;
 float			Speed_User_Cmd			=1000.0f;
 
 /* Commutation table */
@@ -245,12 +247,29 @@ void ADC0_IRQHandler(void)
     	AppState=AppStop;
     }
 
-    else if(AppState==AppStop ||AppState==AppFault)//initial control parameter
+    else if(AppState==AppStop)//initial control parameter
     {
     	BldcCtl.SpeedMeasure		=0;
     	BldcCtl.SpeedCmd			=0;
     	BldcCtl.SpeedErr			=0;
     	cmtflag						=1U;
+    	LED_GREEN_CLEAR;
+    	LED_RED_SET;
+    	PWM_OUT_DISABLE	;
+    }
+
+    else if(AppState==AppFault)//initial control parameter
+    {
+    	BldcCtl.SpeedMeasure		=0;
+    	BldcCtl.SpeedCmd			=0;
+    	BldcCtl.SpeedErr			=0;
+    	cmtflag						=1U;
+    	faultcnt++;
+    	if(faultcnt>250)
+    	{
+    	LED_RED_NOT;
+    	faultcnt=0;
+    	}
     	PWM_OUT_DISABLE	;
     }
 

@@ -19,12 +19,12 @@ This application note describes the implementation of the 3-phase Brushless DC m
 7. [Release Notes](#step7)
 
 ## 1. Software<a name="step1"></a>
-- Download and install [MCUXpresso IDE V11.7.x or later](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-integrated-development-environment-ide:MCUXpresso-IDE). 
+- Download and install [MCUXpresso IDE V11.8.0 or later](https://nxp.flexnetoperations.com/control/frse/product?entitlementId=590613497&lineNum=1&authContactId=157658197&authPartyId=171870707). 
 - Download and install the latest version of [MCUXpresso Config Tool](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-config-tools-pins-clocks-and-peripherals:MCUXpresso-Config-Tools).
 - Download and install the latest version of [FreeMASTER](https://www.nxp.com/freemaster).
-- Download the [attached software package](https://www.nxp.com/docs/en/application-note-software/AN13571SW.zip) of [AN13571](https://www.nxp.com/docs/en/application-note/AN13571.pdf).
+- Download the [attached software package](https://www.nxp.com/docs/en/application-note-software/AN13571SW.zip) of [AN13571](https://www.nxp.com/docs/en/application-note/AN13571.pdf).(Based on [SDK_2_14_0_LPCXpresso55S36](https://mcuxpresso.nxp.com/en/welcome))
 ## 2. Hardware<a name="step2"></a>
-- [LPC5536/LPC55S36 Evaluation Board](https://www.nxp.com/document/guide/getting-started-with-the-lpc5536-lpc55s36-evaluation-board:GS-LPC55S36-EVK)(REV.C).
+- [LPC5536/LPC55S36 Evaluation Board](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/lpcxpresso-boards/lpcxpresso55s36-development-board:LPCXpresso55S36)(REV.D).
 - [FRDM-MC-LVBLDC](https://www.nxp.com/part/FRDM-MC-LVBLDC#/).
 - [LINIX 45ZWN24 BLDC motor](https://www.nxp.com/design/development-boards/freedom-development-boards/mcu-boards/low-voltage-3-phase-motor-for-frdm-platform:FRDM-MC-LVMTR).
 - Personal Computer
